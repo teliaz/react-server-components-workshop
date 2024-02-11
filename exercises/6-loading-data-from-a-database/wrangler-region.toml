@@ -3,3 +3,9 @@ main = "./dist-region/index.js"
 compatibility_date = "2023-11-09"
 compatibility_flags = ["nodejs_compat"]
 
+[[d1_databases]]
+binding = "DB"
+database_name = "rsc-workshop"
+database_id = "c8fac4c5-c6cd-4d58-a852-c14e7f6e9503" # REPLACE THIS WITH YOUR ID!
+migrations_dir = "./migrations"
+

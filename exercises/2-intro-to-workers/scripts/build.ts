@@ -11,6 +11,25 @@ async function buildClientSideRenderedReactApp() {
 	});
 }
 
+async function buildGlobalWorker() {
+	await build({
+		entryPoints: ["./global-worker/index.tsx"],
+		format: "esm",
+		platform: "neutral",
+		conditions: [
+			"workerd", // The Cloudflare Workers runtime is called 'workerd'
+			"browser",
+		],
+		mainFields: ["workerd", "module", "main", "browser"],
+		bundle: true,
+		splitting: true,
+		outdir: "./dist-global/_worker.js",
+		define: {
+			"process.env.NODE_ENV": JSON.stringify("development"),
+		},
+	});
+}
+
 async function copyStaticAssets() {
 	await cp("./public", "./dist-global", { recursive: true });
 }

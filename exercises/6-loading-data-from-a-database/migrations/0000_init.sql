@@ -1,0 +1,8 @@
+-- Migration number: 0000 	 2023-11-14T18:29:04.505Z
+ CREATE TABLE IF NOT EXISTS note (
+    	id INTEGER PRIMARY KEY,
+    	title TEXT NOT NULL,
+    	body TEXT NOT NULL,
+    	created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+    	updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+    );
